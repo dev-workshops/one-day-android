@@ -1,0 +1,1445 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+			.os-container {
+				width:100%;
+				padding:10px;
+				background:black;
+				border-radius:10px;
+			}
+			.os-column {
+				float:left; width:30%;
+				padding:10px;
+				background:orangeRed;
+				align:center;
+				border-radius:0px 0px 10px 10px;
+			}
+			.half {
+				float:left; width:48%;
+			}
+			.ubuntu {background: orangeRed;}
+			.windows {background: navy;}
+			.mac {background: DarkSlateGray;}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			<!-- PART 1: HOW THE INTERNET WORKS -->
+				<section>
+					<h1>Android(?)</h1>
+					<h3>One-Day Workshop</h3>
+					<p>+ A bit of Git</p>
+				</section>
+
+				<section>
+					<h2>What we'll learn</h2>
+					<p>
+						<li>What's in an Android app</li>
+						<li>Version control and why it's important</li>
+						<li>How to use jUnit for rapid testing</li>
+					</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>What we'll be trying to build</h2>
+					<ul>
+						<li>A very basic android app</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Agenda</h2>
+					<p>Today</p>
+					<ol>
+						<li>Installation</li>
+						<li>Parts of an Android app </li>
+						<li>Command line</li>
+						<li>Git/GitHub</li>
+						<br>
+						<li>LUNCH</li>
+						<br>
+						<li>Data types and variables</li>
+						<li>Functions and methods </li>
+						<li>Creating an android UI</li>
+						<li>User interaction in android</li>
+
+					</ol>
+				</section>
+
+				<section>
+					<h2>Expectations</h2>
+					<ul>
+						<li>It's going to hurt your brain</li>
+						<li>Ask questions</li>
+						<li>Google is your friend</li>
+						<li>We will hit errors</li>
+					</ul>
+				</section>
+
+
+
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Your Takeaways</h2>
+						<ul>
+							<h2>Confidence in your ability to troubleshoot and learn on your own</h2>
+							<img src="http://dont-tread-on.me/wp-content/uploads/2011/07/633909300514037185-confidence3.jpg" style="align: center">
+						</ul>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+
+				</section>
+
+
+				<!--  -->
+
+
+				<section>
+
+					<section>
+						<h2>Check that you have</h2> <h1><a href="https://developer.android.com/studio/install">Android Studio</a></h1> <h2>installed</h2>
+					</section>
+
+					<section>
+						<h2>Opening the Terminal</h2>
+						<div class="os-container">
+							<div class="os-column ubuntu">
+								<h4>Ubuntu</h2>
+								<pre><code data-trim>Ctrl</code></pre>+<pre><code data-trim>Alt</code></pre>+<pre><code data-trim>T</code></pre>
+								<p>and hit enter</p>
+							</div>
+							<div class="os-column mac">
+								<h4>Mac</h4>
+								<pre><code data-trim>Command</code></pre>+<pre><code data-trim>Spacebar</code></pre>
+								<p>Type in <i>"Terminal"</i></p> and hit enter
+							</div>
+							<div class="os-column windows">
+								<h4>Windows</h2>
+								<pre><code data-trim>Windows</code></pre>+<pre><code data-trim>r</code></pre>
+								<p>Type in <i>"cmd"</i></p> and hit enter
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h2>Check that we have java 1.7 (ish)</h2>
+
+						<div class="os-container">
+							<div class="os-column ubuntu half">
+								<h4>LINUX (Ubuntu & Mac)</h4>
+								<p>In your terminal:</p>
+								<pre><code data-trim>java -version</code></pre>
+								<img src="android/javaversion.png"/>
+							</div>
+							<div class="os-column windows half">
+								<h4>WINDOWS</h4>
+								<p>Windows Start > Programs > Java > About Java</p>
+								<p><a href="https://introcs.cs.princeton.edu/java/15inout/windows-cmd.html">Java can also be manually added to PATH</a> to run the `java -version` command.</p>
+							</div>
+						</div>
+					</section>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>We're ready!!!</h2>
+					<img src="http://jokideo.com/wp-content/uploads/meme/2014/09/Why-are-frogs-so-happy---meme.jpg">
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Objectives: Parts of Android</h2>
+						<p>Describe the bits of an Android application.</p>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Apps: The user perspective</h2>
+
+						<p>Install from Google Play</p>
+						<p class="fragment">You get an Icon on your Home Screen</p>
+						<p class="fragment">You click it</p>
+						<p class="fragment">Play!</p>
+
+					</section>
+					<section>
+						<h2>Cat Photos</h2>
+						<img src="catpics.webp">
+					</section>
+
+
+				</section>
+
+				<!--  -->
+
+				<section>
+
+					<h2>Parts of an app:<br>DEVELOPER PERSPECTIVE</h2>
+
+					<p class="fragment">Layout xml (like HTML)</p>
+					<p class="fragment">Java code (like js)</p>
+					<p class="fragment">AndroidManifest.xml</p>
+					<p class="fragment">build.gradle</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Layout xml</h2>
+						<p>Define the UI for your app</p>
+					</section>
+					<section>
+						<img src="android/layoutcode.png"/>
+					</section>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Java code</h2>
+						<p>The java does the "work" of the app</p>
+					</section>
+					<section>
+						<img src="android/layoutjava.png"/>
+					</section>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+					<h2>AndroidManifest.xml</h2>
+
+						<p>Think of this file as the "settings" for your application</p>
+
+<!--					<img src="https://s-media-cache-ak0.pinimg.com/736x/a8/6d/46/a86d46e87323b0bea7f0da1c7c59ee2b.jpg"> -->
+					</section>
+					<section>
+						<img src="android/manifest.png"/>
+					</section>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+
+						<h2>Code Parts</h2>
+						<p class="fragment">Activity</p>
+						<p class="fragment">Intent</p>
+						<p class="fragment" style="color: rgb(102,102,102)"><i>Fragment, Service, BroadcastReceiver, ContentProvider, etc...</i></p>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Activity == Screen</h2>
+
+				</section>
+
+				<section>
+					<h2>Intent == Message</h2>
+
+				</section>
+
+				<!--  -->
+				<section>
+					<h2>Forget all that!</h2>
+				</section>
+
+				<section>
+					<h2>This class is Java</h2>
+					<p>Java is doing the actual work</p>
+					<p class="fragment">Java is critical for Android</p>
+					<p class="fragment">!</p>
+				</section>
+
+				<section>
+						<h2>Basic Java exercise?</h2>
+						<p>Fire an arrow</p>
+				</section>
+
+				<!-- <section>
+						<h2>If you know git and Java...</h2>
+						<p><code>
+							git clone git@github.com:kpgalligan/ga_ex1_arrow.git
+						</code></p>
+
+						they won't know git yet
+				</section> -->
+
+				<section>
+					<h2>Paying attention?</h2>
+					<p class="fragment">Identify the 3 basic parts of an Android app and their purpose. </p>
+				</section>
+
+				<!-- PART 2:  -->
+
+				<section>
+					<h2>Objectives: the command line and Java</h2>
+						<p>Navigate files and folders using the terminal</p>
+						<p>Run Java code using the command line</p>
+				</section>
+
+				<!--  -->
+
+				<!-- TODO: Keep? -->
+				<section>
+					<h2>Since we're big time developers</h2>
+					<ul>
+						<li>Leverage the web</li>
+							<ul>
+								<li>Google, StackOverflow, GitHub</li>
+								<li>There is a "right" way to Google</li>
+							</ul>
+						<li>Be efficient
+							<ul>
+								<li>Use the keyboard, terminal (command line) as much as humanly possible</li>
+							</ul>
+					</ul>
+
+					<img src="http://cdn.meme.am/instances/500x/57775484.jpg">
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>The Command Line</h2>
+						<p>Heart of your OS</p>
+						<p>You can do anything you could do in finder in the command line but faster</p>
+						<p>"Directory" = "Folder"</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Why use the command line?</h2>
+					<p>Want to run a .docx file? Use Microsoft Office</p>
+					<p>What about an mp3? Open with iTunes</p>
+					<p class="fragment">You <em>can</em> code Java without using terminal, but you'll struggle
+					with other tools and concepts.</p>
+
+				</section>
+
+				<!--  -->
+
+
+				<section>
+					<h2>Big Idea: Functions vs. Parameters</h2>
+						<ul>
+							<li>Just like high school math, functions/commands represent a set of instructions that take input, do calculations on that input, and return a result.</li>
+							<li>"Input" = "Parameters"</li>
+							<li>Parameters are information or data you give to a function</li>
+							<li>Example: f(x) = 2x + 4</li>
+							<li class="fragment">Sometimes, functions don't accept parameters</li>
+
+							<p class="fragment">What happens if we do f(3)?</p>
+
+						</ul>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Let's go back to the terminal</h2>
+					<p>Mac: <pre><code>Applications > Utilitites > Terminal</code></pre></p>
+
+					<p>For Mac users, lets also open our finder to see how updates made in the terminal affect our file and folder structure</p>
+
+					<p>PC: Right click desktop and choose<pre><code>Git bash</code></pre></p>
+				</section>
+
+				<section>
+
+					<h2>Terminal Commands Demo</h2>
+
+					<p>Remember: Directory = Folder</p>
+
+					<p>Do these with me!</p>
+
+					Find out the present working directory
+					<pre><code>pwd</code></pre>
+					List the contents of the directory
+					<pre><code>ls</code></pre>
+					Change directories
+					<pre><code>cd</code></pre>
+					Create a new folder
+					<pre><code>mkdir</code></pre>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Terminal Commands Demo</h2>
+							<pre><code>rmdir</code></pre> - Remove an empty folder
+							<pre><code>touch</code></pre> - Create an empty file
+							<pre><code>rm</code></pre> - Remove a file
+							<pre><code>cp</code></pre> - Copy a file
+							<pre><code>atom</code></pre> - Open the directory you're in with a text editor
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Moving Between Folders Demo</h2>
+					Move up one directory
+						<pre><code>cd ..</code></pre>
+						<ul>
+							<li>We can chain folders into the ".." parameter</li>
+						</ul>
+
+						<hr>
+
+						<p class="fragment">Move to the parent (root) directory</p>
+						<pre class="fragment"><code>cd ~</code></pre>
+
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Your Turn!</h2>
+					<p>From your desktop:</p>
+					<ul>
+						<li>Create a directory called "days_of_week"</li>
+						<li>Create two more directories within the "days_of_week" directory: "weekend" and "weekdays"</li>
+						<li>Within the "weekend" directory, create two files: saturday.html and sunday.html</li>
+						<li>Within the "weekdays" directory, create five files: monday.html, tuesday.html, etc</li>
+					</ul>
+					<p>Work with a partner!</p>
+				</section>
+
+				<section>
+					<h2>BREAK</h2>
+				</section>
+
+				<section>
+					<h2>What is Git?</h2>
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSYNiK9LZNmljFVhMlqt0nPVir1ttyM0xzwh59EMfZL-SAn-iEyS2yPw">
+					<ul>
+						<li>Think Microsoft Office in 1999 - but with "version history" from Google Docs</li>
+						<li>Code manager or "version control software"</li>
+						<li>It's super smart</li>
+						<li>The real benefit is when you're working in teams, but let's ignore that for now</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Let's try it!</h2>
+					<ul>
+						<li><pre><code>cd</code></pre> into your days directory</li>
+						<li>Let's track this project!</li>
+						<li><pre><code>git init</code></pre> This adds git to your "days" directory </li>
+						<li><pre><code>git add</code></pre> Adds your files as "ready to be saved" (committed)</li>
+						<li><pre><code>git commit -m 'INSERT A MESSAGE'</code></pre> Commits (saves) files to the git timeline or version history</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Let's check the logs</h2>
+					<ul>
+						<li><pre><code>git log</code></pre> Shows your commit history</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Key Idea</h2>
+					<p>With Git, nothing is lost (if you do it right!)</p>
+					<p>Let's check it out:</p>
+					<ul>
+						<li>If I add a whole bunch of crazy HTML to my Monday.html and add/commit it, I can checkout to my earlier version</li>
+						<li class="fragment">You can imagine how valuable this is to a developer or a dev team</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>So what the heck is GitHub?</h2>
+					<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQgGCuxZwIa0pVqtUJV6ig3UJCL7KNXPBO6Lbo8NE1Pkyv8BB4yMNwzAQFU">
+					<ul>
+						<li>A service that lets you host Git repositories (fancy word for "projects") on the internet</li>
+						<li class="fragment">Allows for easy sharing of code</li>
+						<li class="fragment">There are public sources of code (Reddit) and private sources of code (predict)</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>If you haven't already, let's take a second to sign up for GitHub</h2>
+					<ul>
+						<li>To prevent problems, use the same email/username you used for your git configurations</li>
+					</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Why is GitHub so special for teams?</h2>
+					<ul>
+						<li>Let's look a few slides visualizing this</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/7fffU87.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/Aa0km0l.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/mEDOFiq.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/LKK5xkk.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/mz22vbw.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/KxeuveR.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/LwVbMwk.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/H7j2RDs.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/BEMKYWR.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/xnui6LV.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/kwc4dk5.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/GiYCy2J.png">
+				</section>
+
+				<section>
+					<img src="https://i.imgur.com/07OiOrs.png">
+				</section>
+
+				<section>
+					<h2>For your reference...</h2>
+					<p>Copy this link: https://i.imgur.com/07OiOrs.png</p>
+					<p>We'll reference it throughout the lesson</p>
+				</section>
+
+
+
+				<section>
+					<h2>Watch me, now.</h2>
+					<ul>
+						<li>I will add some changes to my days of the week files and folders</li>
+						<li class="fragment">Then I'll add/commit those change</li>
+						<li class="fragment">Then I'll create a new project on GitHub</a></li>
+						<li class="fragment">Then I'll push those changes</a></li>
+						<br>
+					<h2 class="fragment">Watch you, now.</h2>
+						<li class="fragment">Then you will "fork" my changes, so you have them on GitHub</li>
+						<li class="fragment">Then you create a new folder (why?), and "clone" that GitHub repository</li>
+						<pre class="fragment"><code>git clone YOUR_URL@github.com</code></pre>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Let's take a look at a GitHub project</h2>
+					<p>https://github.com/square/retrofit</p>
+					<p>What information can we find about this project history?</p>
+				</section>
+
+				<section>
+					<h2>Your turn!</h2>
+						<p>https://github.com/dlew/joda-time-android</p>
+						<ul>
+							<li>What version are they up to?</li>
+							<li>Which user is the second-greatest contributor to this repository?</li>
+							<li>How many commits were made on August 12th?</li>
+							<li>On the April 12th, 2015 commit:</li>
+							<ul>
+								<li>How many files were modified? </li>
+								<li>How many lines were added? </li>
+								<li>How many lines were deleted? </li>
+								<li>What are the names of the files that were modified?</li>
+							</ul>
+
+						</ul>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>LUNCH!</h2>
+					<img src="http://www.troll.me/images2/ryan-gosling-with-glasses/hey-girl-take-a-study-break.jpg">
+				</section>
+
+				<!--  -->
+
+<!-- TODO recapp -->
+				<section>
+					<h2>Recap the morning</h2>
+					<ul>
+						<li>What part of an Android app handles the logic?</li>
+						<li>Gary is a co-worker working on a side-project and asked me to help - what should Gary do and what should I do to make sure I can edit Gary's code on my computer?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Objectives</h2>
+					<ul>
+						<li>Learn about basics of Java types</li>
+						<li>Control the flow of your application based on user input</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Lets write some code!</h2>
+					<p>Why Java???</p>
+					<p class="fragment">Well, for Android, you need it.</p>
+					<p class="fragment">Probably most things you see use it (maybe)</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Java</h2>
+
+						<img src="http://www.fastweb.it/var/storage_feeds/CMS/articoli/8d6/8d690e3a2081cdeb274923aa32591b01/JamesGoslingJava.jpg">
+						<ul>
+							<li>Created by James Gosling/Sun in the mid-90s</li>
+							<li>Was supposed to be "write once, run anywhere"</li>
+							<li>Basically for servers</li>
+							<li>Android first serious UI usage</li>
+							<li>Object oriented</li>
+						</ul>
+					</section>
+					<section>
+						<img src="http://img.allw.mn/content/2013/10/23161719_0413.jpg">
+						<ul>
+							<li>Some consider it "old" and/or verbose</li>
+							<li>Whatever, scoreboard</li>
+						</ul>
+					</section>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Some weird Java stuff</h2>
+						<p class="fragment">(Mostly) Everything is a class/object</p>
+						<p class="fragment">Unlike scripting languages, you can't just "run" a file</p>
+					</section>
+					<section>
+						<h2>Java compilation</h2>
+						<p class="fragment">Java code is just text</p>
+						<p class="fragment">"Compiled" into maching readable code</p>
+						<p class="fragment">All languages technically do this at some point</p>
+						<p class="fragment">
+							<img src="https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif"/>
+						</p>
+
+					</section>
+					<section>
+						<p>Don't worry about public class App</p>
+						<p class="fragment">Or public static void main</p>
+						<img src="android/javamain.png">
+					</section>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Open Java</h2>
+						<p>Clone git url: https://github.com/kpgalligan/gagradle</p>
+						<p>In your terminal:</p>
+
+						<pre><code data-trim>
+							clone git@github.com:kpgalligan/gagradle.git
+							cd gagradle
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Run Java in the Termianl</h2>
+						<p class="fragment">javac App</p>
+						<p class="fragment">java App</p>
+					</section>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Data Types</h2>
+					<p>Java is primitives and objects</p>
+					<p class="fragment">Primitives are basic data types</p>
+					<p class="fragment">Objects are data collections (basically)</p>
+					<p class="fragment">An object is a software bundle of related state and behavior. Software objects are often used to model the real-world objects that you find in everyday life.</p>
+					<p class="fragment">Practice the next few slides with me!</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>All programming has something like...</h2>
+					<p class="fragment">Numbers</p>
+					<p class="fragment">Strings</p>
+					<p class="fragment">Boolean</p>
+					<p class="fragment">Collections</p>
+				</section>
+
+				<section>
+					<h2>Data Types: Numbers</h2>
+					<ul>
+						<p>Integers</p>
+						<p class="fragment">
+							1, 5, 245, -42, 24142341351324
+						</p>
+						<p class="fragment">byte, short, int, long</p>
+						<p class="fragment">Floats</p>
+						<p class="fragment">
+							1.1, 2.000043, -0.5522001
+						</p>
+						<p class="fragment">float, double</p>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2>Data Types: Strings</h2>
+					<ul>
+						<li>any kind of text</li>
+						<li>donated by double quotes</li>
+					</ul>
+					<p>
+						<img src="android/strings.png"/>
+					</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Data Types: Boolean</h2>
+					<ul>
+						<p>Yes/No value</p>
+						<p><img src="android/boolean.png"/></p>
+					</ul>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Variables</h2>
+					<p>Variables are simply a place to store data. The type of data is declared before the variable name (Java has stong typing). Variable names, by convention, start lower case, with capitals for new words (Camel case):</p>
+					<br>
+					<img src="android/variables.png">
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Concatenating Variables</h2>
+					<p>You can join strings!</p>
+					<p><img src="android/concat.png"></p>
+					<p class="fragment"><code> &gt; This is a string </code></p>
+					<p class="fragment">Discuss: Could you think of any use cases for this?</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>System.out.println()</h2>
+						<p>Writes string out to terminal: </p>
+						<p class="fragment">(Yes, Java can be verbose)</p>
+						<p class="fragment"><img src="android/concat.png"></p>
+					</section>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>User Input</h2>
+					<p>Read lines from terminal</p>
+					<img src="android/scanner.png">
+					<p class="fragment">Yeah, weird. Just do it.</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Let's get down and write some code.</h2>
+					<p>Code along!  Strings & Integers</p>
+					<img src="http://www.redcanary.ca/wp-content/uploads/2013/02/Do-you-even-code-bro.jpg">
+				</section>
+
+				<!-- TODO: Prep some code examples -->
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Methods (or functions)</h2>
+						<ul>
+							<li>Let's think back to math, as before:</li>
+							<p>f(x) = x + 2</p>
+							<p class="fragment">Does this function produce anything if you repeat the "instructions"?</p>
+
+						</ul>
+					</section>
+					<section>
+						<p>Method is a list of instructions</p>
+						<p class="fragment">
+							<img src="http://pad3.whstatic.com/images/thumb/6/63/Get-Driving-Directions-in-Google-Maps-Step-4-Version-2.jpg/670px-Get-Driving-Directions-in-Google-Maps-Step-4-Version-2.jpg"/>
+						</p>
+					</section>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<section>
+						<h2>Writing Methods</h2>
+
+						<p class="fragment">In Java, you would write f(x) = x + 2 like: </p>
+						<p class="fragment">
+							<img src="android/func.png">
+						</p>
+
+						<p class="fragment">All methods have</p>
+						<ul class="fragment">
+							<li>A return type</li>
+							<li>A name</li>
+							<li>(optional) Parameters</li>
+							<li>The code body</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Access level (and other things)</h2>
+						<p><img src="android/weirdwords.png"/></p>
+						<p>You'll see some other words floating around. Visibility is only important once
+							you get into classes</p>
+						<p class="fragment">And if you see synchronized, you're probably in the wrong place</p>
+					</section>
+				<section>
+					<p>Note, all methods are part of a class (but don't worry about that yet)</p>
+					<p>
+						<img src="android/funcclass.png">
+					</p>
+				</section>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Calling Methods</h2>
+					<p>Use the name, pass params, profit.</p>
+					<img src="android/callfunc.png">
+					<p class="fragment">Don't get freaked out by 'static'. Just use it for now</p>
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Let's practice together!</h2>
+					<p>Methods code along</p>
+				</section>
+
+				<!-- TODO: Prep some code examples -->
+				<!--  -->
+
+				<section>
+
+					<section>
+						<p>Running Java on the command line is a little complex to understand...</p>
+						<p class="fragment">But easy to do with the test project</p>
+						<p class="fragment">In Terminal, run 'javac App'</p>
+						<p class="fragment">In Terminal, run 'java App'</p>
+					</section>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>You try it!</h2>
+					<p>Refactor the code along code to ask the user for two numbers, and print out
+					the product of those numbers </p>
+					<p>Fork, clone, and work: https://github.com/kpgalligan/ga_ex2_stringsandnumbers </p>
+					<p class="fragment">Hint: turn a String into an int with:<br/>
+						<code>Integer.parseInt(aString)</code>
+					</p>
+				</section>
+
+				<section>
+					<h2>Objectives</h2>
+					<p>use Booleans and conditionals to control the flow of your application</p>
+				</section>
+
+				<section>
+						<h2>Booleans</h2>
+						<p>Either true or false; these give us the ability to use logic => to choose where and what we want to happen in our application. </p>
+						<pre><code>true || false</code></pre>
+						<img src="android/basicbool.png">
+				</section>
+
+				<section>
+					<h2>To get boolean values, we operate!</h2>
+					<p>read: "user operators; compare"</p>
+					<img src="http://www.java-samples.com/images/java.h5.gif">
+
+				</section>
+
+				<section>
+					<h2>Some examples</h2>
+					<img src="android/opexamples.png">
+
+				</section>
+
+				<section>
+					<h2>That brings us to conditionals: the 'if' statement</h2>
+					<p>The syntax reads</p>
+					<img src="android/funcconditional.png">
+				</section>
+
+				<section>
+					<h2>Conditional 'if' statements</h2>
+					<p>The 'else if'</p>
+					<img src="android/funcelseif.png">
+				</section>
+
+				<section>
+					<h2>Strings (and objects) are weird</h2>
+					<p>OK!<br/>
+					<img src="android/intequals.png"/></p>
+					<p class="fragment">OK?<br/>
+					<img src="android/strequals1.png"/></p>
+					<p class="fragment">Nope!<br/>
+					<img src="android/strequals2.png"/></p>
+					<p class="fragment">Use 'equals()'<br/>
+					<img src="android/strequals3.png"/></p>
+
+				</section>
+
+
+
+
+				<!-- TODO: Update examples -->
+				<section>
+					<h2>Watch meh!</h2>
+					<p>I'm going to build a function that asks a user where they live and then tells them whether or not they are cool.</p>
+				</section>
+
+
+				<section>
+					<h2>You try it!</h2>
+					<p>Go get https://github.com/kpgalligan/ga_ex4_beer</p>
+				</section>
+
+				<section>
+					<h2>Conclusion</h2>
+					<p class="fragment">Basic Android bits</p>
+					<p class="fragment">Command line</p>
+					<p class="fragment">Git</p>
+					<p class="fragment">Basic Java and types</p>
+					<p class="fragment">Boolean logic</p>
+					<p class="fragment">Methods</p>
+				</section>
+				<!-- TODO Conclusion -->
+				<!--  -->
+
+				<!-- TODO Review if capitalize is too complex for this -->
+				<section>
+					<section>
+					<h2>Welcome back!</h2>
+						<p>Android has 3 major parts</p>
+						<p>Let's get our brains going!</p>
+						<p>(Kevin, https://github.com/kpgalligan/ga_ex6_names)</p>
+						<p>Check tlk.io for the kickoff assignment.</p>
+						<img src="http://i3.kym-cdn.com/photos/images/original/000/288/697/3fa.jpg">
+					</section>
+
+					<section>
+						<p>Part 1: Together - clone, fork https://github.com/kpgalligan/ga_ex6_names</p>
+						<p>Part 2: In Pairs - https://gist.github.com/kpgalligan/1ed0157e53fd0d28d49b</p>
+						<p>Bonus: Push your code to GitHub!</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Multiple Conditions</h2>
+					<p>This allows you to create an if statement that could be satisfied by multiple conditions</p>
+				</section>
+
+				<section>
+					<p>and</p>
+						<img src="android/multipleconditionals.png">
+				</section>
+
+				<section>
+					<p>or</p>
+						<img src="android/multipleor.png">
+				</section>
+
+				<!-- TODO Code example -->
+				<section>
+					<h2>Let's try it!!</h2>
+					<p>Fork it, clone it, solve it!</p>
+					<p>https://github.com/kpgalligan/ga_ex7_adminexample</p>
+				</section>
+
+
+				<!--  -->
+
+
+				<section>
+						<h2>Loops: Continue doing stuff...over and over...</h2>
+						<p>For</p>
+						<img src="android/loopfor.png">
+				</section>
+
+				<section>
+						<p>While (if you're curious)</p>
+						<img src="android/loopwhile.png">
+				</section>
+
+
+				<section>
+					<h2>Loops</h2>
+					<p>Watch me!!</p>
+				</section>
+
+				<!-- TODO: Make java version -->
+				<section>
+					<h2>Now yew!</h2>
+					<p>Fork it, clone it, solve it: https://github.com/kpgalligan/ga_ex8_secretnumber</p>
+					<img src="http://i3.kym-cdn.com/photos/images/original/000/240/010/c79.jpg">
+				</section>
+
+
+				<section>
+					<h2>Data Collections</h2>
+					<p>Simply put, data collections are a collection of data!</p>
+					<p>Collections can include all types of data</p>
+					<p>Java is going to make this a little weird, so WAKE UP!</p>
+					<p class="fragment">
+						<img src="https://media.giphy.com/media/ZlL9U0DNaOdFK/giphy.gif"/>
+					</p>
+				</section>
+
+				<section>
+					<h2>Objects</h2>
+					<p>Can have a bunch of variables and methods</p>
+					<img src="android/basicobject.png"/>
+				</section>
+
+				<section>
+					<h2>Primitives</h2>
+					<p>Just simple data (low level stuff)</p>
+					<img src="android/justint.png"/>
+					<p class="fragment">But can also be an object<br/>
+						<img src="android/objint.png"/>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Arrays and Lists</h2>
+					<p>Java has an array type, which is a basic collection of values</p>
+					<img src="android/arrayints.png"/>
+					<p class="fragment">But you need to know how many up front, and not many methods (ew)</a>
+				</section>
+
+				<section>
+					<h2>Lists!</h2>
+					<p>Are more flexible. Can just add, call methods, but...</p>
+					<img src="android/listints.png"/>
+					<p class="fragment">
+						The can only hold objects.  No primitives.  Yet, autoboxing...<br/>
+<img src="http://i1.wp.com/www.mingoos.com/wp-content/uploads/2015/04/Cat-fight....gif?w=700"/>
+					</p>
+				</section>
+
+				<section>
+					<h2>Confusing</h2>
+					<p>Just assume you'll understand it after you learn about objects</p>
+				</section>
+
+				<section>
+					<h2>ArrayList can do things</h2>
+					<img src="android/liststrings.png"/>
+					<p class="fragment">NOTE: Indexes start at 0!</p>
+				</section>
+
+				<section>
+					<h2>More stuff we can do with a list</h2>
+					<p>Code along with me:</p>
+					<ul>
+						<li>add our names to a list (variable) called classNames</li>
+						<li>add "Rob" to the front of the list</li>
+						<li>add "Jim" to the back of the list</li>
+						<li>remove them both</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Why are collections awesome?</h2>
+					<p>We can "iterate" over them!</p>
+					<p>read: "we can do Something to each element in a collections of data"</p>
+					<ul>
+						<li>Let's take our class list and print each element in it</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Collections: Maps</h2>
+					<ul>
+						<li>A Map is like a dictionary, a set of "keys" and corresponding "values"</li>
+						<li>For every key, there is a corresponding definition</li>
+						<li>Can be String, but can be other objects (on either side)</li>
+						<li>Maps are objects, with methods to manipulate them</li>
+						<li class="fragment">Let's create a map and access elements together</li>
+					</ul>
+
+
+
+				</section>
+
+				<section>
+					<h2>Collections: Hashes</h2>
+					<p>We got sweet methods on hashes too!</p>
+
+					<pre><code>stringMap.keySet()</code></pre>
+					<pre><code>stringMap.values()</code></pre>
+					<pre><code>stringMap.size()</code></pre>
+					<p class="fragment">Let's practice adding new values and retrieving values from a Map</p>
+				</section>
+
+				<section>
+					<h2>Retrieving values from a hash</h2>
+					<pre><code>stringMap.get("name")</code></pre>
+					<pre><code>stringMap.get("address")</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Iterating</h2>
+						<video autoplay controls loop>
+							<source src="android/iterstrings.mp4" type="video/mp4">
+						</video>
+					</section>
+					<section>
+						<h2>More Iterating</h2>
+						<video autoplay controls loop>
+							<source src="android/itermaps.mp4" type="video/mp4">
+						</video>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Cities</h2>
+						<p>Clone code: https://github.com/kpgalligan/ga_ex9_collect</p>
+						<p>Read the big data file of cities</p>
+						<p>Store all the cities by state</p>
+						<p>State is the key in a Map.  Cities for each in a List</p>
+					</section>
+					<section>
+						<h2>Hints</h2>
+						<p>Values in file are comma separated</p>
+						<p>Use "split" string method to separate parts</p>
+						<p>Use "trim" string method, because spaces are messy</p>
+					</section>
+				</section>
+
+
+				<section>
+					<h2>Talking to the world</h2>
+					<p>Similar to browsers</p>
+					<p>Use a network library to make server calls</p>
+				</section>
+
+				<section>
+					<h2>The internet as you know it</h2>
+
+					<p>It all comes down to requests and responses</p>
+					<p class="fragment">You send information out to the web, and based on the info you send, you get information back</p>
+					<img src="https://cdn.tutsplus.com/net/authors/jeremymcpeak/http1-request-response.png">
+
+
+
+				</section>
+				<section>
+					<h2>HTTP</h2>
+
+					<p>Stands for "Hyper Text Transfer Protocol"</p>
+					<p class="fragment">Allows for communication between a variety of <strong>hosts and clients</strong>, and supports a mixture of network configurations.</p>
+
+					<img src="https://cdn.tutsplus.com/net/authors/jeremymcpeak/http1-request-response.png">
+
+					<p class="fragment">Read: "Makes it easy for computers to talk to each other"</p>
+
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Important Vocab</h2>
+					<p>Host - Client - Request - Response</p>
+
+					<img src="https://cdn.tutsplus.com/net/authors/jeremymcpeak/http1-request-response.png">
+
+					<p class="fragment">Predict, with a partner, how these vocabulary words relate to one another.  When you're finished,
+					we'll draw a diagram on the board that we will refer back to.</p>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Important Vocab</h2>
+					<p>Host - a computer or other device connected to a computer network. A host may offer information resources, services, and applications (via computer code!) to users or other computers on the network</p>
+
+					<img src="https://cdn.tutsplus.com/net/authors/jeremymcpeak/http1-request-response.png">
+
+					<p>Examples: Servers and Web Services</p>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Hosts - Servers</h2>
+
+					<img src="https://www.securecommobile.com/wp-content/uploads/2014/03/Server-room-interior.jpg">
+
+
+				</section>
+
+				<!--  -->
+
+				<section>
+
+						<h2>Web Services</h2>
+						<p>Let's login to the AWS Console, Heroku</p>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+					<h2>Important Vocab</h2>
+					<p>Client - the requesting <strong>program</strong> in the client/host relationship</p>
+					<p class="fragment">The client initiates an HTTP request message, which is serviced through a HTTP response message in return.</p>
+
+					<img src="https://cdn.tutsplus.com/net/authors/jeremymcpeak/http1-request-response.png">
+
+					<p class="fragment">Come up with one example of a client that can send requests.</p>
+
+				</section>
+
+				<!--  -->
+
+				<section>
+
+					<section>
+						<h2>Clients</h2>
+						<p>Terminals</p>
+
+							<img src="http://i0.wp.com/www.mikebeas.com/wordpress/wp-content/uploads/2014/06/terminal.png?fit=960%2C960">
+
+
+					</section>
+
+					<!--  -->
+
+					<section>
+						<h2>Clients</h2>
+						<p>Web Browsers</p>
+
+							<img src="http://chromespot.com/wp-content/uploads/2013/09/chrome-update-2.png">
+
+					</section>
+
+
+					<section>
+						<h2>Clients</h2>
+						<p>Mobile Apps</p>
+
+							<img src="android/twitter.webp">
+
+					</section>
+				</section>
+				<section>
+						<h2>Try the Terminal as a request client</h2>
+						<p>Open your terminal, and copy in the following request:</p>
+
+							<pre><code data-trim>
+								curl "http://api.openweathermap.org/data/2.5/weather?q=new+york,us&APPID=ee24dd3e8a995617fbb51fdd7b160e2c"
+							</code></pre>
+
+						<p>cURL stands for 'Client URL Request Library'</p>
+
+					</section>
+				<section>
+					<h2>Browsers get HTML</h2>
+					<p>Format for display</p>
+					<img src="android/htmlexample.png"/>
+				</section>
+				<section>
+					<h2>Apps get Data</h2>
+					<p>(Often JSON)</p>
+					<img src="android/jsonexample.png"/>
+				</section>
+				<section>
+					<h2>Try the Androids</h2>
+					https://github.com/kpgalligan/ga_android
+				</section>
+				<section>
+					<section>
+						<h2>Server side</h2>
+						<p>Communication through urls from client</p>
+						<p>Path and params point at things</p>
+					</section>
+					<section>
+						<h2>GET</h2>
+						<p>Gets data from the server</p>
+					</section>
+					<section>
+						<h2>POST (or PUT)</h2>
+						<p>Generally modifies data on server</p>
+					</section>
+					<section>
+						<h2>Clients talk to server and db</h2>
+						<p>The internet!</p>
+						<img src="android/clientserverdiagram.png"/>
+					</section>
+				</section>
+				<section>
+					<h2>Study resources</h2>
+					<h3>Big reference</h3>
+					<p>https://docs.oracle.com/javase/tutorial/</p>
+					<h3>Practice examples</h3>
+					<p>http://codingbat.com/java</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
