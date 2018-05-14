@@ -118,7 +118,7 @@ The command line is the heart of your OS. You can do anything you could do in fi
 
 Let's try the following commands together:
 - pwd - List the contents of the directory
-- ls - List all files and folders in current directory
+- ls/dir(windows) - List all files and folders in current directory
 - cd - Change directories
 - mkdir - Create a new folder
 - rmdir - Remove an empty folder
