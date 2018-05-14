@@ -20,6 +20,7 @@ creator:
 - Have Java installed
 - Have Android Studio installed
 - Have the proper SDK installed
+- Have [git](https://git-scm.com/) installed
 
 ### INSTRUCTOR PREP
 *Before this lesson, instructors will need to*
