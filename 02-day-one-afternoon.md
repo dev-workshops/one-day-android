@@ -55,6 +55,7 @@ There are some unique ideas relating to Java:
 
 - (Mostly) Everything is a class/object
 - Unlike scripting languages, you can't just "run" a file
+- There's now a language called `Kotlin` that compiles like java, and can be used for Android development. There are (online resources)[https://try.kotlinlang.org/#/Kotlin%20Koans/Introduction/Lambdas/Task.kt] available, But we won't talk about it more today.
 
 ## Demo: Data types (30 mins)
 
@@ -66,20 +67,25 @@ An object is a software bundle of related state and behavior. Software objects a
 
 All programming languages have something like the following: numbers, strings, booleans, collections.
 
+> Instructor Note: For the following slides, prompt audience to give examples for type (ex. integer = 3).
+
 #### Numbers
 
 These include:
 
-- Integers
-- 1, 5, 245, -42, 24142341351324
-- byte, short, int, long
-- Floats
-- 1.1, 2.000043, -0.5522001
-- float, double
+Integers (whole numbers)
+- 1, 5, 2018
+- data types: byte, short, int, long
+
+Floats (decimal numbers)
+- 1.1, 2.3, -0.5
+- data types: float, double
+
+> Instructor Note: Ask if anyone knows about type differences (ex. difference between an int and a long), but don't get much deeper than some datatypes are good for big numbers (long, double) and some for small numbers (byte)
 
 #### Strings
 - any kind of text
-- donated by double quotes
+- designated by double quotes
 
 #### Booleans
 Think of these as a yes/no kind of value.
@@ -98,7 +104,8 @@ Variables are simply a place to store data. The type of data is declared before 
 
 `System.out.println(wholeString);` writes a string out to the terminal.
 
-`System.in` reads lines from the terminal.  Think of this as accepting user input.
+This is very useful for finding problems in your code.
+But don't worry about that quite yet.
 
 ## Guided Practice: Writing Methods (25 mins)
 
@@ -107,17 +114,23 @@ A method is a list of instructions.  When creating methods, you'll see some othe
 Note that all methods are part of a class (but don't worry about that yet).
 
 All methods have:
-- A return type
+- A return type (the type of the answer)
 - A name
-- (optional) Parameters
-- The code body
+- (optional) Parameters (the inputs)
+- The code body (where the logic takes place)
 
 To call a method, use the name, pass params, and profit.
 
+There are some other words floating around, such as `public` and `private`. These basically have to do with whom can talk to each other. A private method is internal to a class, meaning it can't be called from the outside.
+
+A `static` variable or function doesn't need to be called on an instance of a class. It is always the same across all instances. More about that later.
+
+> Check: What do you expect this code to do?
+
 #### Code along (JUnit)
-For the following few exercises we will be writing methods and asserting that the
-results are what we expect by using jUnit. Automated testing is a powerful way to
-ensure that the code we write works the way we expect it too.
+
+
+For the following few exercises we will be writing methods and asserting that the results are what we expect by using jUnit. Automated testing is a powerful way to ensure that the code we write works the way we expect it too.
 
 Do this with me:
 
@@ -161,7 +174,7 @@ git checkout -b <branch-name>         # creates a new branch
 
 You can switch to a different branch with the `git checkout <branch-name>` command.
 
-Everyone please checkout branch `user-input`. Notice that this branch contains another test file `MathTest`, and that it is broken. Your task: Fix the test!
+Everyone please checkout branch `feature/user-input`. Notice that this branch contains another test file `MathTest`, and that it is broken. Your task: Fix the test!
 
 Create a function that takes as parameters two numbers, and returns the product of those numbers. Run the android unit test and assert that your new function works as expected.
 
@@ -208,6 +221,11 @@ Please do the following:
         app:layout_constraintTop_toBottomOf="@+id/tilYouSay" />
 
 </android.support.constraint.ConstraintLayout>
+```
+* Note: `TextInputLayout` is a good option for user input because it allows easy showing of errors to the user. However, it is not included in the default android view components. Add the following to the dependancies in your `build.gradle` file:
+
+```    
+implementation 'com.android.support:design:27.1.1'
 ```
 
 * Hardcode a string, and note the lint error. Fix it.

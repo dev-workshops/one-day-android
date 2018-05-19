@@ -20,7 +20,6 @@ creator:
 - Have Java installed
 - Have Android Studio installed
 - Have the proper SDK installed
-- Have [git](https://git-scm.com/) installed
 
 ### INSTRUCTOR PREP
 *Before this lesson, instructors will need to*
@@ -54,6 +53,7 @@ What we'll be trying to build:
 
 
 Before lunch agenda:
+- Installation party!
 - Learn about the basic components of an android app
 - Learn about the command line
 - Learn about Github
@@ -61,7 +61,6 @@ Before lunch agenda:
 After Lunch agenda:
 - Use jUnit to:
   - create variables and methods
-- Learn how to manipulate text in android
 - Create a basic ui
 - Add a click listener
 
@@ -75,7 +74,15 @@ Expectations:
 Your Takeaways:
 - I hope to give you increased confidence in your ability to continue learning on your own
 
-> Check: How is software installation going? Does anyone still need help getting software installed?
+## Installation: Walk through (10 mins)
+
+> Check: How is software installation going? Does anyone still need help getting software installed? Note: Links to downloads are on installation slides.
+
+Does everyone have:
+- Android studio
+- Java
+- Git
+
 
 ## Introduction: Parts of an Android app (20 mins)
 
@@ -89,9 +96,12 @@ Your Takeaways:
 > Instructor Note: Show where each of the files can be found in the Android project that will be used during the workshop.
 
 #### Other words to know:
+There are lots of Java parts that are used to make up an android app. To name a few:
 - Activity
 - Intent
 - Fragment, Service, BroadcastReceiver, ContentProvider, etc...
+
+But for now, don't worry about too many of the details. Mainly, try to remember:
 - ACTIVITY == SCREEN
 - INTENT == MESSAGE
 
@@ -118,7 +128,7 @@ The command line is the heart of your OS. You can do anything you could do in fi
 
 Let's try the following commands together:
 - pwd - List the contents of the directory
-- ls/dir(windows) - List all files and folders in current directory
+- ls - List all files and folders in current directory
 - cd - Change directories
 - mkdir - Create a new folder
 - rmdir - Remove an empty folder
@@ -193,8 +203,7 @@ Check: Do you have my project on your local machine.
 ## Demo: Looking at a GitHub project (10 mins)
 
 Let's take a look at the project.
-*TODO: Add repo link here*
-*TODO: Consider replacing this exercise*
+https://github.com/mapbox/android-docs
 
 What information can we find about this project history?
 

@@ -171,7 +171,7 @@
 					</section>
 
 					<section>
-						<h2>Check that we have java 1.7 (ish)</h2>
+						<h2>Check that we have <a href="https://java.com/en/download/manual.jsp">java 1.7 (ish)</a></h2>
 
 						<div class="os-container">
 							<div class="os-column ubuntu half">
@@ -184,6 +184,35 @@
 								<h4>WINDOWS</h4>
 								<p>Windows Start > Programs > Java > About Java</p>
 								<p><a href="https://introcs.cs.princeton.edu/java/15inout/windows-cmd.html">Java can also be manually added to PATH</a> to run the `java -version` command.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h2>And we need: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">GIT</a></h2>
+
+						<p>In your terminal:</p>
+						<pre><code data-trim>git -version</code></pre>
+
+						<p>If you don't have it:</p>
+
+						<div class="os-container">
+							<div class="os-column ubuntu">
+								<h4>Ubuntu</h4>
+								<p>In your terminal:</p>
+								<p>On Fedora RPM distribution:</p>
+								<pre><code data-trim>sudo dnf install git-all</code></pre>
+								<p>On Debian-based distribution:</p>
+								<pre><code data-trim>sudo apt install git-all</code></pre>
+							</div>
+							<div class="os-column windows">
+								<h4>WINDOWS</h4>
+								<p>There is a exe to install for windows. You can also install <a href="https://desktop.github.com/">Git Desktop</a>.</p>
+							</div>
+							<div class="os-column mac">
+								<h4>Mac</h4>
+								<p>In your terminal:</p>
+								<pre><code data-trim>git -version</code></pre>
 							</div>
 						</div>
 					</section>
@@ -268,10 +297,22 @@
 
 						<p>Think of this file as the "settings" for your application</p>
 
-<!--					<img src="https://s-media-cache-ak0.pinimg.com/736x/a8/6d/46/a86d46e87323b0bea7f0da1c7c59ee2b.jpg"> -->
 					</section>
 					<section>
 						<img src="android/manifest.png"/>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+					<h2>build.gradle</h2>
+
+						<p>This is the "dependancy list" for your application</p>
+
+					</section>
+					<section>
+						<img src="android/buildgradle.png"/>
 					</section>
 
 				</section>
@@ -280,7 +321,7 @@
 
 				<section>
 
-						<h2>Code Parts</h2>
+						<h2>Some Java Components (Parts)</h2>
 						<p class="fragment">Activity</p>
 						<p class="fragment">Intent</p>
 						<p class="fragment" style="color: rgb(102,102,102)"><i>Fragment, Service, BroadcastReceiver, ContentProvider, etc...</i></p>
@@ -299,43 +340,21 @@
 
 				</section>
 
-				<!--  -->
-				<section>
-					<h2>Forget all that!</h2>
-				</section>
-
-				<section>
-					<h2>This class is Java</h2>
-					<p>Java is doing the actual work</p>
-					<p class="fragment">Java is critical for Android</p>
-					<p class="fragment">!</p>
-				</section>
-
-				<section>
-						<h2>Basic Java exercise?</h2>
-						<p>Fire an arrow</p>
-				</section>
-
 				<!-- <section>
-						<h2>If you know git and Java...</h2>
-						<p><code>
-							git clone git@github.com:kpgalligan/ga_ex1_arrow.git
-						</code></p>
-
-						they won't know git yet
+					<h2>Forget all that!</h2>
 				</section> -->
 
 				<section>
 					<h2>Paying attention?</h2>
-					<p class="fragment">Identify the 3 basic parts of an Android app and their purpose. </p>
+					<p class="fragment">Identify the 4 basic parts of an Android app and their purpose. </p>
 				</section>
 
 				<!-- PART 2:  -->
 
 				<section>
-					<h2>Objectives: the command line and Java</h2>
+					<h2>Objectives: the command line and git</h2>
 						<p>Navigate files and folders using the terminal</p>
-						<p>Run Java code using the command line</p>
+						<p>Clone a GitHub project using the command line</p>
 				</section>
 
 				<!--  -->
@@ -370,24 +389,13 @@
 				<!--  -->
 
 				<section>
-					<h2>Why use the command line?</h2>
-					<p>Want to run a .docx file? Use Microsoft Office</p>
-					<p>What about an mp3? Open with iTunes</p>
-					<p class="fragment">You <em>can</em> code Java without using terminal, but you'll struggle
-					with other tools and concepts.</p>
-
-				</section>
-
-				<!--  -->
-
-
-				<section>
 					<h2>Big Idea: Functions vs. Parameters</h2>
+					<p>Just like high school math, functions/commands represent a set of instructions that take input, do calculations on that input, and return a result.</p>
+					<h3>Example: f(x) = 2x + 4</h3>
+					<br>
 						<ul>
-							<li>Just like high school math, functions/commands represent a set of instructions that take input, do calculations on that input, and return a result.</li>
 							<li>"Input" = "Parameters"</li>
 							<li>Parameters are information or data you give to a function</li>
-							<li>Example: f(x) = 2x + 4</li>
 							<li class="fragment">Sometimes, functions don't accept parameters</li>
 
 							<p class="fragment">What happens if we do f(3)?</p>
@@ -409,32 +417,92 @@
 
 				<section>
 
-					<h2>Terminal Commands Demo</h2>
+					<h2><a href="https://www.lemoda.net/windows/windows2unix/windows2unix.html">Terminal Commands</a> Demo</h2>
 
 					<p>Remember: Directory = Folder</p>
 
 					<p>Do these with me!</p>
 
-					Find out the present working directory
-					<pre><code>pwd</code></pre>
-					List the contents of the directory
-					<pre><code>ls</code></pre>
-					Change directories
-					<pre><code>cd</code></pre>
-					Create a new folder
-					<pre><code>mkdir</code></pre>
+					<section>
+						<p>Where am I now? (present working directory)</p>
+						<div class="os-column ubuntu half">
+							<h4>LINUX</h4>
+							<pre><code>pwd</code></pre>
+						</div>
+						<div class="os-column windows half">
+							<h4>WINDOWS</h4>
+							<pre><code>cd</code></pre>
+						</div>
+				 </section>
 
-				</section>
+				 <section>
+						<p>What's in here? (list contents of directory)</p>
+						<div class="os-column ubuntu half">
+							<h4>LINUX</h4>
+							<pre><code>ls</code></pre>
+						</div>
+						<div class="os-column windows half">
+							<h4>WINDOWS</h4>
+							<pre><code>dir</code></pre>
+						</div>
+				 </section>
 
-				<!--  -->
+				 <section>
+						<p>Change directories</p>
+						<pre><code>cd</code></pre>
+					</section>
 
-				<section>
-					<h2>Terminal Commands Demo</h2>
-							<pre><code>rmdir</code></pre> - Remove an empty folder
-							<pre><code>touch</code></pre> - Create an empty file
-							<pre><code>rm</code></pre> - Remove a file
-							<pre><code>cp</code></pre> - Copy a file
-							<pre><code>atom</code></pre> - Open the directory you're in with a text editor
+					<section>
+						<p>Make a new directory</p>
+						<pre><code>mkdir</code></pre>
+					</section>
+
+					<section>
+						<p>Remove an empty folder</p>
+						<pre><code>rmdir</code></pre>
+					</section>
+
+					<section>
+						<p>Create an empty file</p>
+						<div class="os-column ubuntu half">
+							<h4>LINUX</h4>
+							<pre><code>touch filename.txt</code></pre>
+						</div>
+						<div class="os-column windows half">
+							<h4>WINDOWS</h4>
+							<pre><code>$null > filename.txt</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<p>Remove a file</p>
+						<div class="os-column ubuntu half">
+							<h4>LINUX</h4>
+							<pre><code>rm</code></pre>
+						</div>
+						<div class="os-column windows half">
+							<h4>WINDOWS</h4>
+							<pre><code>del</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<p>Copy a file</p>
+						<div class="os-column ubuntu half">
+							<h4>LINUX</h4>
+							<pre><code>cp</code></pre>
+						</div>
+						<div class="os-column windows half">
+							<h4>WINDOWS</h4>
+							<pre><code>copy</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<p>Open the current directory with a text editor</p>
+						<pre><code>atom</code></pre>
+					</section>
+
 				</section>
 
 				<!--  -->
@@ -492,6 +560,7 @@
 						<li><pre><code>cd</code></pre> into your days directory</li>
 						<li>Let's track this project!</li>
 						<li><pre><code>git init</code></pre> This adds git to your "days" directory </li>
+						<li><pre><code>git status</code></pre> This shows the status of git </li>
 						<li><pre><code>git add</code></pre> Adds your files as "ready to be saved" (committed)</li>
 						<li><pre><code>git commit -m 'INSERT A MESSAGE'</code></pre> Commits (saves) files to the git timeline or version history</li>
 					</ul>
@@ -549,61 +618,63 @@
 				</section>
 
 				<section>
-					<img src="https://i.imgur.com/7fffU87.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/7fffU87.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/Aa0km0l.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/Aa0km0l.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/mEDOFiq.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/mEDOFiq.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/LKK5xkk.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/LKK5xkk.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/mz22vbw.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/mz22vbw.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/KxeuveR.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/KxeuveR.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/LwVbMwk.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/LwVbMwk.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/H7j2RDs.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/H7j2RDs.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/BEMKYWR.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/BEMKYWR.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/xnui6LV.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/xnui6LV.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/kwc4dk5.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/kwc4dk5.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/GiYCy2J.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/GiYCy2J.png">
+					</section>
 
-				<section>
-					<img src="https://i.imgur.com/07OiOrs.png">
-				</section>
+					<section>
+						<img src="https://i.imgur.com/07OiOrs.png">
+					</section>
 
-				<section>
-					<h2>For your reference...</h2>
-					<p>Copy this link: https://i.imgur.com/07OiOrs.png</p>
-					<p>We'll reference it throughout the lesson</p>
+					<section>
+						<h2>For your reference...</h2>
+						<p>Copy this link: https://i.imgur.com/07OiOrs.png</p>
+						<p>We'll reference it throughout the lesson</p>
+					</section>
 				</section>
 
 
@@ -611,7 +682,7 @@
 				<section>
 					<h2>Watch me, now.</h2>
 					<ul>
-						<li>I will add some changes to my days of the week files and folders</li>
+						<li>I will add some changes to the basic android project that we will be using during this course.</li>
 						<li class="fragment">Then I'll add/commit those change</li>
 						<li class="fragment">Then I'll create a new project on GitHub</a></li>
 						<li class="fragment">Then I'll push those changes</a></li>
@@ -625,13 +696,12 @@
 
 				<section>
 					<h2>Let's take a look at a GitHub project</h2>
-					<p>https://github.com/square/retrofit</p>
+					<p><a href="https://github.com/mapbox/mapbox-android-demo">https://github.com/mapbox/mapbox-android-demo</a></p>
 					<p>What information can we find about this project history?</p>
 				</section>
 
 				<section>
 					<h2>Your turn!</h2>
-						<p>https://github.com/dlew/joda-time-android</p>
 						<ul>
 							<li>What version are they up to?</li>
 							<li>Which user is the second-greatest contributor to this repository?</li>
@@ -651,7 +721,9 @@
 
 				<section>
 					<h2>LUNCH!</h2>
-					<img src="http://www.troll.me/images2/ryan-gosling-with-glasses/hey-girl-take-a-study-break.jpg">
+					<img src="memes/focus-fools-lunch.jpg">
+
+					<p><i>If you are still having <b>installation problems</b>, please talk to me before going to eat.</i></p>
 				</section>
 
 				<!--  -->
@@ -677,7 +749,7 @@
 					<h2>Lets write some code!</h2>
 					<p>Why Java???</p>
 					<p class="fragment">Well, for Android, you need it.</p>
-					<p class="fragment">Probably most things you see use it (maybe)</p>
+					<p class="fragment">There's also <a href="https://try.kotlinlang.org/#/Kotlin%20Koans/Introduction/Lambdas/Task.kt">Kotlin (a new jvm language which Android supports)</a>... but let's not worry about that for now</p>
 				</section>
 
 				<!--  -->
@@ -732,27 +804,6 @@
 				<!--  -->
 
 				<section>
-					<section>
-						<h2>Open Java</h2>
-						<p>Clone git url: https://github.com/kpgalligan/gagradle</p>
-						<p>In your terminal:</p>
-
-						<pre><code data-trim>
-							clone git@github.com:kpgalligan/gagradle.git
-							cd gagradle
-						</code></pre>
-					</section>
-
-					<section>
-						<h2>Run Java in the Termianl</h2>
-						<p class="fragment">javac App</p>
-						<p class="fragment">java App</p>
-					</section>
-				</section>
-
-				<!--  -->
-
-				<section>
 					<h2>Data Types</h2>
 					<p>Java is primitives and objects</p>
 					<p class="fragment">Primitives are basic data types</p>
@@ -773,13 +824,15 @@
 
 				<section>
 					<h2>Data Types: Numbers</h2>
+					<h3 class="fragment">Integers</h3>
 					<ul>
-						<p>Integers</p>
 						<p class="fragment">
 							1, 5, 245, -42, 24142341351324
 						</p>
 						<p class="fragment">byte, short, int, long</p>
-						<p class="fragment">Floats</p>
+					</ul>
+					<h3 class="fragment">Floats</h3>
+					<ul>
 						<p class="fragment">
 							1.1, 2.000043, -0.5522001
 						</p>
@@ -794,7 +847,7 @@
 						<li>any kind of text</li>
 						<li>donated by double quotes</li>
 					</ul>
-					<p>
+					<p class="fragment">
 						<img src="android/strings.png"/>
 					</p>
 				</section>
@@ -805,7 +858,7 @@
 					<h2>Data Types: Boolean</h2>
 					<ul>
 						<p>Yes/No value</p>
-						<p><img src="android/boolean.png"/></p>
+						<p class="fragment"><img src="android/boolean.png"/></p>
 					</ul>
 
 				</section>
@@ -814,9 +867,15 @@
 
 				<section>
 					<h2>Variables</h2>
-					<p>Variables are simply a place to store data. The type of data is declared before the variable name (Java has stong typing). Variable names, by convention, start lower case, with capitals for new words (Camel case):</p>
+					<ul>
+						<li>Variables are simply a <b>place to store data</b>. </li>
+						<li>The type of data is declared before the variable name (Java has <i>stong typing</i> meaning all variables MUST have a declared type). </li>
+						<li>Variable names start lower case, with capitals for new words (<i>Camel case</i>):</li>
+					</ul>
 					<br>
-					<img src="android/variables.png">
+					<p class="fragment">
+						<img src="android/variables.png">
+					</p>
 				</section>
 
 				<!--  -->
@@ -844,18 +903,9 @@
 				<!--  -->
 
 				<section>
-					<h2>User Input</h2>
-					<p>Read lines from terminal</p>
-					<img src="android/scanner.png">
-					<p class="fragment">Yeah, weird. Just do it.</p>
-				</section>
-
-				<!--  -->
-
-				<section>
 					<h2>Let's get down and write some code.</h2>
 					<p>Code along!  Strings & Integers</p>
-					<img src="http://www.redcanary.ca/wp-content/uploads/2013/02/Do-you-even-code-bro.jpg">
+					<img src="memes/get-down.gif">
 				</section>
 
 				<!-- TODO: Prep some code examples -->
@@ -875,7 +925,7 @@
 					<section>
 						<p>Method is a list of instructions</p>
 						<p class="fragment">
-							<img src="http://pad3.whstatic.com/images/thumb/6/63/Get-Driving-Directions-in-Google-Maps-Step-4-Version-2.jpg/670px-Get-Driving-Directions-in-Google-Maps-Step-4-Version-2.jpg"/>
+							<img src="memes/robot-commands.png"/>
 						</p>
 					</section>
 				</section>
@@ -936,90 +986,96 @@
 				<section>
 
 					<section>
-						<p>Running Java on the command line is a little complex to understand...</p>
-						<p class="fragment">But easy to do with the test project</p>
-						<p class="fragment">In Terminal, run 'javac App'</p>
-						<p class="fragment">In Terminal, run 'java App'</p>
+						<h2>We're going to practice Test Driven Development.</h2>
+						<ul>
+							<li>Open the `d1android` project</li>
+							<li>Create a file called `YouSaidTest` in the test directory</li>
+							<li>Write a jUnit test that asserts there is a method called `sayIt` that returns "You said: %s", where %s is the string param</li>
+							<li>Write an empty `sayIt` method</li>
+							<li>Run the jUnit test. Expect failure!</li>
+							<li>Implement the `sayIt` method</li>
+							<li>Run the jUnit test. Expect success!</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Branch commands:</h2>
+						<p>Shows a list of branches:</p>
+						<pre><code>git branch</pre></code>
+						<p>Checks out a new branch:</p>
+						<pre><code>git checkout branch-name</pre></code>
+						<p>Creates a new branch:</p>
+						<pre><code>git branch -b branch-name</pre></code>
+					</section>
+
+					<section>
+						<h2>Now you try.</h2>
+						<ul>
+							<li>Check out branch "<code>feature/user-input</code>"</li>
+							<li>Find the file called `<code>MathTest</code>` in the test directory</li>
+							<li>Run the existing jUnit test.</li>
+							<li>Figure out why it's broken.</li>
+							<li>Fix the code.</li>
+							<li>Run the jUnit test. Expect success!</li>
+						</ul>
+					</section>
+
+					<section>
+						<p>Why might you write a unit test?</p>
+					</section>
+
+					<section>
+						<p>Unit Test!</p>
+						<img src="memes/unit-test-all.jpg">
+						<p class="fragment">But more on that later...</p>
 					</section>
 
 				</section>
 
-				<!--  -->
-
-				<section>
-					<h2>You try it!</h2>
-					<p>Refactor the code along code to ask the user for two numbers, and print out
-					the product of those numbers </p>
-					<p>Fork, clone, and work: https://github.com/kpgalligan/ga_ex2_stringsandnumbers </p>
-					<p class="fragment">Hint: turn a String into an int with:<br/>
-						<code>Integer.parseInt(aString)</code>
-					</p>
-				</section>
-
-				<section>
-					<h2>Objectives</h2>
-					<p>use Booleans and conditionals to control the flow of your application</p>
-				</section>
-
-				<section>
-						<h2>Booleans</h2>
-						<p>Either true or false; these give us the ability to use logic => to choose where and what we want to happen in our application. </p>
-						<pre><code>true || false</code></pre>
-						<img src="android/basicbool.png">
-				</section>
-
-				<section>
-					<h2>To get boolean values, we operate!</h2>
-					<p>read: "user operators; compare"</p>
-					<img src="http://www.java-samples.com/images/java.h5.gif">
-
-				</section>
-
-				<section>
-					<h2>Some examples</h2>
-					<img src="android/opexamples.png">
-
-				</section>
-
-				<section>
-					<h2>That brings us to conditionals: the 'if' statement</h2>
-					<p>The syntax reads</p>
-					<img src="android/funcconditional.png">
-				</section>
-
-				<section>
-					<h2>Conditional 'if' statements</h2>
-					<p>The 'else if'</p>
-					<img src="android/funcelseif.png">
-				</section>
-
-				<section>
-					<h2>Strings (and objects) are weird</h2>
-					<p>OK!<br/>
-					<img src="android/intequals.png"/></p>
-					<p class="fragment">OK?<br/>
-					<img src="android/strequals1.png"/></p>
-					<p class="fragment">Nope!<br/>
-					<img src="android/strequals2.png"/></p>
-					<p class="fragment">Use 'equals()'<br/>
-					<img src="android/strequals3.png"/></p>
-
-				</section>
-
-
-
-
-				<!-- TODO: Update examples -->
-				<section>
-					<h2>Watch meh!</h2>
-					<p>I'm going to build a function that asks a user where they live and then tells them whether or not they are cool.</p>
-				</section>
 
 
 				<section>
-					<h2>You try it!</h2>
-					<p>Go get https://github.com/kpgalligan/ga_ex4_beer</p>
+					<h2>Now let's build an android application!</h2>
 				</section>
+
+				<!-- <section>
+					<h2>Now let's build an android application!</h2>
+				</section>
+
+				<section>
+					<h2>Adding a user input:</h2>
+					<ul>
+						<li>Go to "<code>BasicActivity</code>"</li>
+						<li>Find the layout file, "<code>R.layout.basic_activity<code>"</li>
+						<li>Go to the layout file. Add xml.</li>
+						<li>Add any needed libraries to the app level "<code>build.gradle</code>" file.</li>
+						 <pre><code>implementation 'com.android.support:design:27.1.1'</code></pre>
+						<li>Put strings in "<code>res/values/strings<code>" file. Don't hardcode strings!</li>
+						<li>In "<code>BasicActivity</code>" get a reference to the button, and add a click listener.</li>
+						<li>Run it!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Your turn!</h2>
+					<ul>
+						<li>Create a "<code>MathActivity</code>"</li>
+						<li>Create a layout file, "<code>R.layout.math_activity<code>"</li>
+						<li>Add any needed libraries to the app level "<code>build.gradle</code>" file.</li>
+							<pre><code>implementation 'com.android.support:design:27.1.1'</code></pre>
+						<li>Go to the layout file. Add xml for two user inputs "<code>etA</code>" and "<code>etB</code>" and a button. Each needs an id.</li>
+							<pre><code>HINT: android:input-type=</code></pre>
+						<li>Put strings in "<code>res/values/strings<code>" file. Don't hardcode strings!</li>
+						<li>In "<code>MathActivity</code>" get a reference to the button, and add a click listener.</li>
+					</ul>
+
+					<p> What's still missing? </p>
+
+					<ul>
+						<li>Every activity must be declared in your manifest. Add "<code>MathActivity</code>" to the manifest.</li>
+						<li>Add some way for the user to get to your "<code>MathActivity<code>". Use the "<code>SayItActivity</code>" as an example</li>
+					</ul>
+				</section> -->
 
 				<section>
 					<h2>Conclusion</h2>
